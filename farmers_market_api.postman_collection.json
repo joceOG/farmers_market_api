@@ -1,0 +1,1070 @@
+{
+	"info": {
+		"_postman_id": "1d47f4f1-58a5-43cf-a759-bb80357e09d1",
+		"name": "XPERBOT-FarmerAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6939561",
+		"_collection_link": "https://solar-shadow-162834.postman.co/workspace/My-Workspace~85f9cb62-a158-4370-844d-91f25f7afa46/collection/6939561-1d47f4f1-58a5-43cf-a759-bb80357e09d1?action=share&source=collection_link&creator=6939561"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"admin\", \"password\": \"1234\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://127.0.0.1:8000/api/login \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"username\": \"admin\", \"password\": \"1234\"}'"
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/me",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"me"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/me \\\n  -H \"Authorization: Bearer {{token}}\""
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://127.0.0.1:8000/api/logout \\\n  -H \"Authorization: Bearer {{token}}\""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"agent1\", \"password\": \"1234\", \"role\": \"operator\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://127.0.0.1:8000/api/users \\\n  -H \"Authorization: Bearer {{token}}\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"username\": \"agent1\", \"password\": \"1234\", \"role\": \"operator\"}'"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/users \\\n  -H \"Authorization: Bearer {{token}}\""
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/users/1 \\\n  -H \"Authorization: Bearer {{token}}\""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Users",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X DELETE http://127.0.0.1:8000/api/users/1 \\\n  -H \"Authorization: Bearer {{token}}\""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Farmers",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/farmers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"identifier\": \"F001\", \"firstname\": \"Koffi\", \"lastname\": \"Jean\", \"phone\": \"07000000\", \"village\": \"Abidjan\", \"region\": \"Lagunes\", \"credit_limit\": 50000}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/farmers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"farmers"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://127.0.0.1:8000/api/farmers \\\n  -H \"Authorization: Bearer {{token}}\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"identifier\": \"F001\", \"firstname\": \"Koffi\", \"lastname\": \"Jean\", \"phone\": \"07000000\", \"village\": \"Abidjan\", \"region\": \"Lagunes\", \"credit_limit\": 50000}'"
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/farmers/1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/farmers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"farmers"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/farmers/1 \\\n  -H \"Authorization: Bearer {{token}}\""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/farmers/1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"credit_limit\": 80000}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/farmers/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"farmers",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X PUT http://127.0.0.1:8000/api/farmers/1 \\\n  -H \"Authorization: Bearer {{token}}\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"credit_limit\": 80000}'"
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/farmers/1",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/farmers/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"farmers",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X DELETE http://127.0.0.1:8000/api/farmers/1 \\\n  -H \"Authorization: Bearer {{token}}\""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/farmers/search?q=F001",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/farmers/search?q=F001",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"farmers",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "F001"
+								}
+							]
+						},
+						"description": "Generated from cURL: curl -X GET \"http://127.0.0.1:8000/api/farmers/search?q=F001\" \\\n  -H \"Authorization: Bearer {{token}}\""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categorie",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/categories \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/categories",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Nouvelle catégorie\", \"parent_id\": null}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://127.0.0.1:8000/api/categories \\\n  -H \"Authorization: Bearer {TOKEN}\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"name\": \"Nouvelle catégorie\", \"parent_id\": null}'"
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/categories/1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/categories/1 \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/categories/1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Catégorie modifiée\", \"parent_id\": null}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X PUT http://127.0.0.1:8000/api/categories/1 \\\n  -H \"Authorization: Bearer {TOKEN}\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"name\": \"Catégorie modifiée\", \"parent_id\": null}'"
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/categories/1",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/categories/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X DELETE http://127.0.0.1:8000/api/categories/1 \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/products",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/products \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Nouveau produit\",\n    \"description\": \"Description du produit\",\n    \"price_fcfa\": 5000,\n    \"category_id\": 1\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://127.0.0.1:8000/api/products \\\n  -H \"Authorization: Bearer {TOKEN}\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"name\": \"Nouveau produit\",\n    \"description\": \"Description du produit\",\n    \"price_fcfa\": 5000,\n    \"category_id\": 1\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/products/1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/products/1 \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/products/1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Produit modifié\",\n    \"price_fcfa\": 5500,\n    \"category_id\": 1\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X PUT http://127.0.0.1:8000/api/products/1 \\\n  -H \"Authorization: Bearer {TOKEN}\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"name\": \"Produit modifié\",\n    \"price_fcfa\": 5500,\n    \"category_id\": 1\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/products/1",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X DELETE http://127.0.0.1:8000/api/products/1 \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/transactions \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/transactions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"farmer_id\": 1,\n    \"payment_method\": \"credit\",\n    \"interest_rate\": 0.30,\n    \"items\": [\n      {\"product_id\": 1, \"quantity\": 2},\n      {\"product_id\": 3, \"quantity\": 1}\n    ]\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://127.0.0.1:8000/api/transactions \\\n  -H \"Authorization: Bearer {TOKEN}\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"farmer_id\": 1,\n    \"payment_method\": \"credit\",\n    \"interest_rate\": 0.30,\n    \"items\": [\n      {\"product_id\": 1, \"quantity\": 2},\n      {\"product_id\": 3, \"quantity\": 1}\n    ]\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/transactions/1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer "
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/transactions/1 \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Depts",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/farmers/1/debts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/farmers/1/debts",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"farmers",
+								"1",
+								"debts"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/farmers/1/debts \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/debts/1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/debts/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"debts",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/debts/1 \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Repayments",
+			"item": [
+				{
+					"name": "http://127.0.0.1:8000/api/repayments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"debt_id\": 1,\n    \"amount\": 10000,\n    \"payment_method\": \"cash\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/repayments",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"repayments"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://127.0.0.1:8000/api/repayments \\\n  -H \"Authorization: Bearer {TOKEN}\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"debt_id\": 1,\n    \"amount\": 10000,\n    \"payment_method\": \"cash\"\n  }'"
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/repayments/1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/repayments/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"repayments",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/repayments/1 \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8000/api/farmers/1/repayments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {TOKEN}"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/farmers/1/repayments",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"farmers",
+								"1",
+								"repayments"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://127.0.0.1:8000/api/farmers/1/repayments \\\n  -H \"Authorization: Bearer {TOKEN}\""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
