@@ -1,19 +1,40 @@
-cat > Dockerfile << 'EOF'
-FROM php:8.2-cli
+FROM php:8.2-fpm-alpine AS base
 
-WORKDIR /var/www
-
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    unzip \
-    git \
+RUN apk add --no-cache \
+    nginx \
+    supervisor \
     curl \
-    && docker-php-ext-install pdo pdo_pgsql
+    libpng-dev libjpeg-turbo-dev libwebp-dev \
+    libzip-dev zip unzip \
+    oniguruma-dev \
+    && docker-php-ext-install \
+        pdo pdo_mysql \
+        mbstring \
+        exif \
+        pcntl \
+        bcmath \
+        gd \
+        zip
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www/html
+
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
 
 COPY . .
 
-RUN curl -sS https://getcomposer.org/installer | php
-RUN php composer.phar install
+RUN composer dump-autoload --optimize
 
-CMD php artisan serve --host=0.0.0.0 --port=8000
-EOF
+RUN chown -R www-data:www-data /var/www/html/storage \
+                                /var/www/html/bootstrap/cache \
+    && chmod -R 775 /var/www/html/storage \
+                    /var/www/html/bootstrap/cache
+
+COPY docker/nginx.conf /etc/nginx/http.d/default.conf
+COPY docker/supervisord.conf /etc/supervisord.conf
+
+EXPOSE 10000
+
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
